@@ -93,8 +93,6 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-
-
         const queryParams = [];
 
         for (let i in this.state.ingredients) {
@@ -103,6 +101,8 @@ class BurgerBuilder extends Component {
         queryParams.push('price=' + this.state.totalPrice);
         
         const queryString = queryParams.join('&');
+        //console.log('QueryParams' + queryParams);
+        //console.log('QueryString' + queryString);
         this.props.history.push({
             pathname: '/checkout',
             search: '?' + queryString

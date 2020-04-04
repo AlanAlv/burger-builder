@@ -17,10 +17,11 @@ class ContactData extends Component {
     }
 
     orderHandler = (event) => {
+        //console.log(this.props.ingredients);
         event.preventDefault();
         this.setState({loading: true});
         const order = {
-            ingredients: this.state.ingredients,
+            ingredients: this.props.ingredients,
             price: this.props.price,
             customer: {
                 name: 'Alan',
@@ -45,11 +46,11 @@ class ContactData extends Component {
 
     render() {
         let form = (
-            <form action="">
-                <input classname={classes.Input} type="text" name="name" placeholder='Your Name' id=""/>
-                <input classname={classes.Input} type="email" name="email" placeholder='Your Mail'id=""/>
-                <input classname={classes.Input} type="text" name="street" placeholder='Street'id=""/>
-                <input classname={classes.Input} type="text" name="postal" placeholder='Postal Code'id=""/>
+            <form>
+                <input className={classes.Input} type="text" name="name" placeholder='Your Name'/>
+                <input className={classes.Input} type="email" name="email" placeholder='Your Mail'/>
+                <input className={classes.Input} type="text" name="street" placeholder='Street'/>
+                <input className={classes.Input} type="text" name="postal" placeholder='Postal Code'/>
                 <Button btnType="Success" clicked={this.orderHandler}>ORDER</Button>
             </form>
         );
